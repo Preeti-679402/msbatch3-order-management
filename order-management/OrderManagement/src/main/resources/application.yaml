@@ -1,0 +1,63 @@
+spring:
+  h2:
+    console:
+      enabled: true
+  datasource:
+    url: jdbc:h2:mem:testdb
+    username: micro
+    password:
+    driverClassName: org.h2.Driver
+  jpa:
+    properties:
+      hibernate:
+        generate_statistics: true
+        format_sql: true
+    hibernate:
+      ddl-auto: none
+    show-sql: true
+  data:
+    jpa:
+      reporsitories:
+        bootstrap-mode: default
+  profiles:
+    active: dev,prod
+
+logging:
+  level:
+    org:
+      hibernate:
+        type: trace
+      springframework:
+        web:
+          servlet: DEBUG
+    root: WARN
+
+
+welcome:
+  message: Welcome message from property file! Welcome in PROD Profile
+
+basic:
+  value: true
+  message: Dynamic message
+  number: 100
+
+server:
+  context:
+     path: /
+
+jwt:
+  singing:
+    key:
+      secret: mySecret
+  get:
+    token:
+      uri: /authenticate
+  http:
+    request:
+      header: Authorization
+  token:
+    expiration:
+      in:
+        seconds: 604800
+
+

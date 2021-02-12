@@ -1,0 +1,36 @@
+
+welcome:
+  message: Welcome message from property file! Welcome in DEV Profile
+
+spring:
+  datasource:
+    url: jdbc:h2:mem:testdb
+    username: microDev
+    password:
+    driverClassName: org.h2.Driver
+
+
+server:
+    port: 8888
+    servlet:
+      context:
+        path: /dev
+
+jwt:
+  singing:
+    key:
+      secret: mySecret
+  get:
+    token:
+      uri: /authenticate
+  http:
+    request:
+      header: Authorization
+  token:
+    expiration:
+      in:
+        seconds: 604800
+
+logging:
+  level:
+    root: WARN
